@@ -1,0 +1,19 @@
+Resources:
+  SensorDataTable:
+    Type: "AWS::DynamoDB::Table"
+    # Delete : This means that when a stack is deleted, all its resources are deleted
+    # Retain : Set the DeletionPolicy to Retain on the
+    # resources that you want to make sure are not removed through CloudFormation
+    DeletionPolicy: Delete
+    Properties:
+      TableName: ${self:custom.tableName}
+      AttributeDefinitions:
+        - AttributeName: sensorId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: sensorId
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 100
+        WriteCapacityUnits: 100
+      #BillingMode: PAY_PER_REQUEST

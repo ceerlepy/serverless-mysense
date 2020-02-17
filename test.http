@@ -1,0 +1,20 @@
+@hostname = 1mednpa514.execute-api.eu-west-2.amazonaws.com
+@stage = dev
+
+GET https://{{hostname}}/{{stage}}/v1/hello
+
+POST https://{{hostname}}/{{stage}}/v1/sensor
+x-api-key: toKdg61vmNds81l9dgvFknUzj8asW
+
+{
+    "name":"Veysel",
+    "age":32
+}
+
+GET https://{{hostname}}/{{stage}}/v1/sensor
+  
+GET https://{{hostname}}/{{stage}}/v1/sensor/{name}
+  
+PUT https://{{hostname}}/{{stage}}/v1/sensor/{name}
+  
+DELETE https://{{hostname}}/{{stage}}/v1/sensor/{name}

@@ -1,0 +1,192 @@
+swagger: "2.0"
+info:
+  version: "1.0"
+  title: serverless-mysense
+  contact: {}
+host: kyo18xs610.execute-api.eu-west-2.amazonaws.com
+basePath: /dev
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /sensor:
+    post:
+      summary: Create Sensor
+      tags:
+        - Misc
+      operationId: CreateSensor
+      deprecated: false
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          description: ""
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ""
+        - name: Body
+          in: body
+          required: true
+          description: ""
+          schema:
+            $ref: "#/definitions/CreateSensorRequest"
+      responses:
+        200:
+          description: ""
+          headers: {}
+    get:
+      summary: List Sensor
+      tags:
+        - Misc
+      operationId: ListSensor
+      deprecated: false
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          description: ""
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ""
+      responses:
+        200:
+          description: ""
+          headers: {}
+  /sensor/f1e7d812-345e-4325-9863-25a171a3a212:
+    get:
+      summary: Get Sensor
+      tags:
+        - Misc
+      operationId: GetSensor
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          description: ""
+      responses:
+        200:
+          description: ""
+          headers: {}
+    put:
+      summary: Update Sensor
+      tags:
+        - Misc
+      operationId: UpdateSensor
+      deprecated: false
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          description: ""
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ""
+        - name: Body
+          in: body
+          required: true
+          description: ""
+          schema:
+            $ref: "#/definitions/UpdateSensorRequest"
+      responses:
+        200:
+          description: ""
+          headers: {}
+  /sensor/a8749f16-3bbc-4abc-a9b5-5c468c9bc95a:
+    delete:
+      summary: Delete Sensor
+      tags:
+        - Misc
+      operationId: DeleteSensor
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          description: ""
+      responses:
+        200:
+          description: ""
+          headers: {}
+definitions:
+  CreateSensorRequest:
+    title: CreateSensorRequest
+    example:
+      name: Sensor 2
+      type: house
+      duration: 13
+      price: 52
+    type: object
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      duration:
+        type: integer
+        format: int32
+      price:
+        type: integer
+        format: int32
+    required:
+      - name
+      - type
+      - duration
+      - price
+  UpdateSensorRequest:
+    title: UpdateSensorRequest
+    example:
+      name: Sensor 3
+      type: ksdnjn
+      duration: 300
+      price: 56
+    type: object
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      duration:
+        type: integer
+        format: int32
+      price:
+        type: integer
+        format: int32
+    required:
+      - name
+      - type
+      - duration
+      - price
+tags:
+  - name: Misc
+    description: ""

@@ -1,0 +1,16 @@
+devLambdaRole:
+  Type: AWS::IAM::Role
+  Properties:
+    RoleName: dev-lambda-role # The name of the role to be created in aws
+    AssumeRolePolicyDocument:
+      Version: "2012-10-17"
+      Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+              - lambda.amazonaws.com
+          Action: sts:AssumeRole
+    ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/AWSLambdaFullAccess
+      #Documentation states the below policy is included automatically when you add VPC configuration but it is currently bugged.
+      - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole

@@ -1,0 +1,28 @@
+Resources:
+  SQSQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: ${self:custom.queueName}
+  SNSTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: SNS Topic
+      TopicName: ${self:custom.snsTopic}
+  SNSSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Endpoint: veyseltosun.vt@gmail.com
+      Protocol: email
+      TopicArn:
+        "arn:aws:sns:#{AWS::Region}:#{AWS::AccountId}:${self:custom.snsTopic}"
+        # {
+        #   "Fn::Join":
+        #     [
+        #       "",
+        #       [
+        #         "arn:aws:sns:${self:provider.region}:",
+        #         { "Ref": "AWS::AccountId" },
+        #         ":${self:resources.Resources.SNSTopic.Properties.TopicName}",
+        #       ],
+        #     ],
+        # }
